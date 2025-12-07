@@ -30,6 +30,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async generateSitemaps() {
+    return [
+      {
+        id: 'default',
+        sitemap: 'sitemap.xml',
+      },
+    ]
+  }
 };
 
 export default nextConfig;
