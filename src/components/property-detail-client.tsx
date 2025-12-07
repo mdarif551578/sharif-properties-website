@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -13,7 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { BedDouble, Bath, Ruler, MapPin, Mail, Phone, Building2 } from "lucide-react";
+import { BedDouble, Bath, Ruler, MapPin, Mail, Phone, Building2, Car, ShieldCheck, Zap, Dumbbell, Sun, Sofa, ParkingCircle, HandPlatter, Flame, Building, Trees } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import type { Property } from "@/lib/types";
 
@@ -33,22 +34,22 @@ export function PropertyDetailClient({ property }: { property: Property }) {
     'Bath': <Bath className="h-5 w-5 text-accent" />,
     'Ruler': <Ruler className="h-5 w-5 text-accent" />,
     'Building2': <Building2 className="h-5 w-5 text-accent" />,
-    'Garage': <BedDouble className="h-5 w-5 text-accent" />,
-    'Garden': <Ruler className="h-5 w-5 text-accent" />,
-    'Security': <Ruler className="h-5 w-5 text-accent" />,
-    'PowerBackup': <Building2 className="h-5 w-5 text-accent" />,
-    'Gym': <Ruler className="h-5 w-5 text-accent" />,
-    'RooftopDeck': <Building2 className="h-5 w-5 text-accent" />,
-    'Furnished': <BedDouble className="h-5 w-5 text-accent" />,
-    'Parking': <Ruler className="h-5 w-5 text-accent" />,
-    'Reception': <Building2 className="h-5 w-5 text-accent" />,
-    'Terrace': <BedDouble className="h-5 w-5 text-accent" />,
+    'Garage': <Car className="h-5 w-5 text-accent" />,
+    'Garden': <Trees className="h-5 w-5 text-accent" />,
+    'Security': <ShieldCheck className="h-5 w-5 text-accent" />,
+    'PowerBackup': <Zap className="h-5 w-5 text-accent" />,
+    'Gym': <Dumbbell className="h-5 w-5 text-accent" />,
+    'RooftopDeck': <Sun className="h-5 w-5 text-accent" />,
+    'Furnished': <Sofa className="h-5 w-5 text-accent" />,
+    'Parking': <ParkingCircle className="h-5 w-5 text-accent" />,
+    'Reception': <HandPlatter className="h-5 w-5 text-accent" />,
+    'Terrace': <Sun className="h-5 w-5 text-accent" />,
     'LakeView': <Ruler className="h-5 w-5 text-accent" />,
     'Balcony': <Building2 className="h-5 w-5 text-accent" />,
-    'ServantRoom': <BedDouble className="h-5 w-5 text-accent" />,
-    'CommunityHall': <Ruler className="h-5 w-5 text-accent" />,
-    'GasSupply': <Building2 className="h-5 w-5 text-accent" />,
-    'GatedCommunity': <Ruler className="h-5 w-5 text-accent" />,
+    'ServantRoom': <HandPlatter className="h-5 w-5 text-accent" />,
+    'CommunityHall': <Building className="h-5 w-5 text-accent" />,
+    'GasSupply': <Flame className="h-5 w-5 text-accent" />,
+    'GatedCommunity': <ShieldCheck className="h-5 w-5 text-accent" />,
   }
 
   const propertyJsonLd = {
@@ -223,3 +224,5 @@ export function PropertyDetailClient({ property }: { property: Property }) {
     </>
   );
 }
+
+    
