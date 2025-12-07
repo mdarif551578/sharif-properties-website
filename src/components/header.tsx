@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Building2, Menu, X } from "lucide-react";
+import { Building2, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
@@ -19,26 +19,34 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  const isHomePage = pathname === '/';
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check scroll position on initial render
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const headerClasses = cn(
+    "sticky top-0 z-50 w-full transition-all duration-300",
+    (isScrolled || !isHomePage) 
+      ? "bg-background/80 backdrop-blur-sm border-b" 
+      : "bg-transparent"
+  );
+
+  const navLinkColor = (isScrolled || !isHomePage) ? "text-foreground" : "text-primary-foreground";
+  const activeLinkColor = (isScrolled || !isHomePage) ? "text-accent" : "text-white";
+
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
-        isScrolled ? "bg-background/80 backdrop-blur-sm border-b" : "bg-transparent"
-      )}
-    >
+    <header className={headerClasses}>
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <Building2 className={cn("h-7 w-7", isScrolled || pathname !== '/' ? 'text-accent' : 'text-primary-foreground')} />
-            <span className={cn("text-xl font-bold", isScrolled || pathname !== '/' ? 'text-foreground' : 'text-primary-foreground')}>
+            <Building2 className={cn("h-7 w-7 transition-colors", (isScrolled || !isHomePage) ? 'text-accent' : 'text-white')} />
+            <span className={cn("text-xl font-bold transition-colors", navLinkColor)}>
               Sharif Properties
             </span>
           </Link>
@@ -50,9 +58,7 @@ export function Header() {
                 href={link.href}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-accent",
-                  pathname === link.href
-                    ? "text-accent"
-                    : isScrolled || pathname !== '/' ? "text-foreground" : "text-primary-foreground",
+                  pathname === link.href ? activeLinkColor : navLinkColor
                 )}
               >
                 {link.label}
@@ -63,7 +69,7 @@ export function Header() {
           <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className={cn(isScrolled || pathname !== '/' ? 'text-foreground' : 'text-primary-foreground', 'hover:bg-accent/20')}>
+                <Button variant="ghost" size="icon" className={cn(navLinkColor, 'hover:bg-accent/20')}>
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Open menu</span>
                 </Button>

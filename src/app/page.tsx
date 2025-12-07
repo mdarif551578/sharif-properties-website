@@ -55,14 +55,18 @@ export default function Home() {
           />
         )}
         <div className="absolute inset-0 bg-primary/70" />
-        <div className="relative z-10 flex flex-col items-center gap-6 px-4 animate-fade-in-up">
-          <h1 className="text-4xl font-bold tracking-tight text-primary-foreground md:text-6xl lg:text-7xl">
-            Find Your Dream Property
-          </h1>
-          <p className="max-w-3xl text-lg text-primary-foreground/90 md:text-xl">
-            Luxury apartments, commercial spaces, and unparalleled service in the heart of Dhaka.
-          </p>
-          <SearchBar />
+        <div className="relative z-10 flex flex-col items-center gap-6 px-4">
+          <div className="animate-fade-in-up">
+            <h1 className="text-4xl font-bold tracking-tight text-primary-foreground md:text-6xl lg:text-7xl">
+              Find Your Dream Property
+            </h1>
+            <p className="mt-4 max-w-3xl text-lg text-primary-foreground/90 md:text-xl">
+              Luxury apartments, commercial spaces, and unparalleled service in the heart of Dhaka.
+            </p>
+          </div>
+          <div className="w-full max-w-4xl animate-fade-in-up" style={{ animationDelay: '0.3s', opacity: 0 }}>
+             <SearchBar />
+          </div>
         </div>
       </section>
 
