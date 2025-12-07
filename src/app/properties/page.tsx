@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useMemo, useEffect, Suspense } from "react";
@@ -33,33 +34,37 @@ function PropertiesPageContent() {
         setPriceRange(value as [number, number]);
     };
     
-    const applyFilters = () => {
-        let results = allProperties;
+    useEffect(() => {
+        const applyFilters = () => {
+            let results = allProperties;
 
-        if (location) {
-            results = results.filter(p =>
-                p.city.toLowerCase().includes(location.toLowerCase()) ||
-                p.address.toLowerCase().includes(location.toLowerCase())
-            );
-        }
-
-        results = results.filter(p => p.price >= priceRange[0] && p.price <= priceRange[1]);
-
-        if (bedrooms !== "any") {
-            const minBeds = parseInt(bedrooms.replace('+', ''));
-            if (bedrooms.includes('+')) {
-                results = results.filter(p => p.bedrooms >= minBeds);
-            } else {
-                results = results.filter(p => p.bedrooms === minBeds);
+            if (location) {
+                results = results.filter(p =>
+                    p.city.toLowerCase().includes(location.toLowerCase()) ||
+                    p.address.toLowerCase().includes(location.toLowerCase())
+                );
             }
-        }
 
-        if (propertyType !== "any") {
-            results = results.filter(p => p.type === propertyType);
-        }
+            results = results.filter(p => p.price >= priceRange[0] && p.price <= priceRange[1]);
 
-        setFilteredProperties(results);
-    };
+            if (bedrooms !== "any") {
+                const minBeds = parseInt(bedrooms.replace('+', ''));
+                if (bedrooms.includes('+')) {
+                    results = results.filter(p => p.bedrooms >= minBeds);
+                } else {
+                    results = results.filter(p => p.bedrooms === minBeds);
+                }
+            }
+
+            if (propertyType !== "any") {
+                results = results.filter(p => p.type === propertyType);
+            }
+
+            setFilteredProperties(results);
+        };
+
+        applyFilters();
+    }, [location, priceRange, bedrooms, propertyType]);
 
     const resetFilters = () => {
         setLocation('');
@@ -67,10 +72,6 @@ function PropertiesPageContent() {
         setBedrooms('any');
         setPropertyType('any');
     };
-
-    useEffect(() => {
-        applyFilters();
-    }, [location, priceRange, bedrooms, propertyType]);
 
     const formatPrice = (price: number) => {
         return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(price);
@@ -177,4 +178,3 @@ export default function PropertiesPage() {
         </Suspense>
     );
 }
-
