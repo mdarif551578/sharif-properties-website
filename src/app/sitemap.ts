@@ -9,25 +9,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Add static pages
   const staticRoutes = [
     {
-      url: siteUrl,
+      url: `${siteUrl}/`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 1,
     },
     {
-      url: `${siteUrl}/properties`,
+      url: `${siteUrl}/properties/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-        url: `${siteUrl}/blog`,
+        url: `${siteUrl}/blog/`,
         lastModified: new Date(),
         changeFrequency: 'weekly',
         priority: 0.8,
     },
     {
-      url: `${siteUrl}/contact`,
+      url: `${siteUrl}/contact/`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
@@ -36,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Add dynamic property pages
   const propertyEntries: MetadataRoute.Sitemap = properties.map(({ id }) => ({
-    url: `${siteUrl}/properties/${id}`,
+    url: `${siteUrl}/properties/${id}/`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.8,
