@@ -36,17 +36,17 @@ export function Header() {
       ? "bg-background/80 backdrop-blur-sm border-b" 
       : "bg-transparent"
   );
-
-  const navLinkColor = (isScrolled || !isHomePage) ? "text-foreground" : "text-primary-foreground";
-  const activeLinkColor = (isScrolled || !isHomePage) ? "text-accent" : "text-white";
+  
+  const navLinkColor = "text-foreground";
+  const activeLinkColor = "text-accent";
 
   return (
     <header className={headerClasses}>
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <Building2 className={cn("h-7 w-7 transition-colors", (isScrolled || !isHomePage) ? 'text-accent' : 'text-white')} />
-            <span className={cn("text-xl font-bold transition-colors", navLinkColor)}>
+            <Building2 className="h-7 w-7 text-accent" />
+            <span className="text-xl font-bold text-foreground">
               Sharif Properties
             </span>
           </Link>
