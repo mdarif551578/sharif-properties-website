@@ -15,6 +15,7 @@ export default function RootLayout({
       <head>
         <title>Sharif Properties - Luxury Real Estate in Dhaka</title>
         <meta name="description" content="Sharif Properties offers a premier selection of luxury apartments, commercial spaces, and houses in Dhaka's most desirable neighborhoods, including Gulshan, Banani, and Bashundhara." />
+        <meta name="google-site-verification" content="yFGdP65i916oCwom1sHrhTkBfRrIvS040hjnfiFm_6Y" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
