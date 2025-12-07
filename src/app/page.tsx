@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player/lazy';
 import { properties } from '@/lib/properties';
 import { PropertyCard } from '@/components/property-card';
@@ -44,22 +44,27 @@ const testimonials = [
 export default function Home() {
   const featuredProperties = properties.filter((p) => p.featured).slice(0, 4);
   const areas = [...new Set(properties.map(p => p.city === "Dhaka" ? p.address : p.city))];
-  const [isVideoReady, setIsVideoReady] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <div>
       <section className="relative h-screen w-full flex items-center justify-center text-center overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full">
-           <ReactPlayer
-              url="https://www.youtube.com/watch?v=x5Ja4hi3dTw"
-              playing={true}
-              loop={true}
-              muted={true}
-              width="100%"
-              height="100%"
-              onReady={() => setIsVideoReady(true)}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover"
-            />
+          {isClient && (
+             <ReactPlayer
+                url="https://www.youtube.com/watch?v=x5Ja4hi3dTw"
+                playing={true}
+                loop={true}
+                muted={true}
+                width="100%"
+                height="100%"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover"
+              />
+          )}
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20" />
         <div className="relative z-10 flex flex-col items-center gap-8 px-4">
