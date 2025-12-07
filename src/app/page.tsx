@@ -54,7 +54,7 @@ export default function Home() {
             data-ai-hint={heroImage.imageHint}
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-navy/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20" />
         <div className="relative z-10 flex flex-col items-center gap-8 px-4">
           <div className="animate-fade-in-up space-y-4">
             <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl">
