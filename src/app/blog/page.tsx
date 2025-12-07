@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { Twitter, Facebook, Linkedin } from 'lucide-react';
@@ -7,6 +8,12 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
 export default function BlogPage() {
+  const [publishDate, setPublishDate] = useState('');
+
+  useEffect(() => {
+    setPublishDate(new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }));
+  }, []);
+
   return (
     <>
       <Head>
@@ -81,7 +88,7 @@ export default function BlogPage() {
             <Separator className="my-12" />
 
             <footer className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p className="text-sm text-muted-foreground font-medium">Published on: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                <p className="text-sm text-muted-foreground font-medium">Published on: {publishDate || '...'}</p>
                 <div className="flex items-center gap-2">
                     <span className="text-sm font-medium text-muted-foreground">Share this post:</span>
                     <Button variant="outline" size="icon" asChild>
