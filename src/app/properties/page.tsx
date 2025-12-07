@@ -38,33 +38,74 @@ function PropertiesPageContent() {
         const applyFilters = () => {
             let results = allProperties;
 
-            if (location) {
+            const urlLocation = searchParams.get('location') || '';
+            const urlType = searchParams.get('type') || 'any';
+            const urlBedrooms = searchParams.get('bedrooms') || 'any';
+
+            if (location !== urlLocation) setLocation(urlLocation);
+            if (propertyType !== urlType) setPropertyType(urlType);
+            if (bedrooms !== urlBedrooms) setBedrooms(urlBedrooms);
+
+            if (urlLocation) {
                 results = results.filter(p =>
-                    p.city.toLowerCase().includes(location.toLowerCase()) ||
-                    p.address.toLowerCase().includes(location.toLowerCase())
+                    p.city.toLowerCase().includes(urlLocation.toLowerCase()) ||
+                    p.address.toLowerCase().includes(urlLocation.toLowerCase())
                 );
             }
 
             results = results.filter(p => p.price >= priceRange[0] && p.price <= priceRange[1]);
 
-            if (bedrooms !== "any") {
-                const minBeds = parseInt(bedrooms.replace('+', ''));
-                if (bedrooms.includes('+')) {
+            if (urlBedrooms !== "any") {
+                const minBeds = parseInt(urlBedrooms.replace('+', ''));
+                if (urlBedrooms.includes('+')) {
                     results = results.filter(p => p.bedrooms >= minBeds);
                 } else {
                     results = results.filter(p => p.bedrooms === minBeds);
                 }
             }
 
-            if (propertyType !== "any") {
-                results = results.filter(p => p.type === propertyType);
+            if (urlType !== "any") {
+                results = results.filter(p => p.type === urlType);
             }
 
             setFilteredProperties(results);
         };
 
         applyFilters();
+    }, [searchParams, priceRange]);
+
+     const applyAndSetFilters = () => {
+        let results = allProperties;
+
+        if (location) {
+            results = results.filter(p =>
+                p.city.toLowerCase().includes(location.toLowerCase()) ||
+                p.address.toLowerCase().includes(location.toLowerCase())
+            );
+        }
+
+        results = results.filter(p => p.price >= priceRange[0] && p.price <= priceRange[1]);
+
+        if (bedrooms !== "any") {
+            const minBeds = parseInt(bedrooms.replace('+', ''));
+            if (bedrooms.includes('+')) {
+                results = results.filter(p => p.bedrooms >= minBeds);
+            } else {
+                results = results.filter(p => p.bedrooms === minBeds);
+            }
+        }
+
+        if (propertyType !== "any") {
+            results = results.filter(p => p.type === propertyType);
+        }
+
+        setFilteredProperties(results);
+    };
+
+    useEffect(() => {
+        applyAndSetFilters();
     }, [location, priceRange, bedrooms, propertyType]);
+
 
     const resetFilters = () => {
         setLocation('');
