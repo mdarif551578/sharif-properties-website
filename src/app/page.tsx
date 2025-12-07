@@ -37,13 +37,13 @@ const testimonials = [
 
 
 export default function Home() {
-  const featuredProperties = properties.filter((p) => p.featured);
+  const featuredProperties = properties.filter((p) => p.featured).slice(0, 4);
   const heroImage = placeholderImages.placeholderImages.find(img => img.id === 'hero-image');
   const areas = [...new Set(properties.map(p => p.city === "Dhaka" ? p.address : p.city))];
 
   return (
     <div>
-      <section className="relative h-screen w-full flex items-center justify-center text-center">
+       <section className="relative h-screen w-full flex items-center justify-center text-center">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
@@ -54,14 +54,14 @@ export default function Home() {
             data-ai-hint={heroImage.imageHint}
           />
         )}
-        <div className="absolute inset-0 bg-primary/70" />
-        <div className="relative z-10 flex flex-col items-center gap-6 px-4">
-          <div className="animate-fade-in-up">
-            <h1 className="text-4xl font-bold tracking-tight text-primary-foreground md:text-6xl lg:text-7xl">
-              Find Your Dream Property
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-navy/40" />
+        <div className="relative z-10 flex flex-col items-center gap-8 px-4">
+          <div className="animate-fade-in-up space-y-4">
+            <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl">
+              Find Your Next Home In Dhaka
             </h1>
-            <p className="mt-4 max-w-3xl text-lg text-primary-foreground/90 md:text-xl">
-              Luxury apartments, commercial spaces, and unparalleled service in the heart of Dhaka.
+            <p className="mt-4 max-w-3xl text-lg text-white/90 md:text-xl">
+              The #1 source for luxury apartments, commercial spaces, and unparalleled service in the heart of the city.
             </p>
           </div>
           <div className="w-full max-w-4xl animate-fade-in-up" style={{ animationDelay: '0.3s', opacity: 0 }}>
@@ -80,25 +80,11 @@ export default function Home() {
               A selection of our finest properties, curated for you.
             </p>
           </div>
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent>
-              {featuredProperties.map((property) => (
-                <CarouselItem key={property.id} className="md:basis-1/2 lg:basis-1/3">
-                   <div className="p-1">
-                    <PropertyCard property={property} />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="ml-14" />
-            <CarouselNext className="mr-14" />
-          </Carousel>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {featuredProperties.map((property) => (
+              <PropertyCard key={property.id} property={property} />
+            ))}
+          </div>
           <div className="mt-12 text-center">
             <Button asChild size="lg">
               <Link href="/properties">

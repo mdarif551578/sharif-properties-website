@@ -20,7 +20,7 @@ export const properties: Property[] = [
     ],
     agent: {
       name: "Sharif Property Management",
-      avatar: "https://images.unsplash.com/photo-1568316674077-d72ee56de61c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBtYW58ZW58MHx8fHwxNzY1MDI5NDk2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      avatar: "https://images.unsplash.com/photo-1568316674077-d72ee56de61c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBtYW58ZW58MHx8fHwxNzY1MDI5NDk2fDA&ixlib-rb-4.1.0&q=80&w=1080",
       phone: "+8801700XXXXXX",
       email: "info@sharif.com.bd"
     },
@@ -44,7 +44,7 @@ export const properties: Property[] = [
     ],
     agent: {
       name: "Sharif Property Management",
-      avatar: "https://images.unsplash.com/photo-1573496527892-904f897eb744?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvZmVzc2lvbmFsJTIwd29tYW58ZW58MHx8fHwxNzY1MDU5MTcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      avatar: "https://images.unsplash.com/photo-1573496527892-904f897eb744?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvZmVzc2lvbmFsJTIwd29tYW58ZW58MHx8fHwxNzY1MDU5MTcxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       phone: "+8801700XXXXXX",
       email: "info@sharif.com.bd"
     },
@@ -64,7 +64,7 @@ export const properties: Property[] = [
     features: ["Parking", "Reception"],
     images: [
       { id: "property-3-1", url: "https://images.unsplash.com/photo-1632743441209-8a09b8a37e25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBjb25kb21pbml1bXxlbnwwfHx8fDE3NjUwOTUyNzd8MA&ixlib=rb-4.1.0&q=80&w=1080", hint: "office space" },
-      { id: "property-3-2", url: "https://images.unsplash.com/photo-1637730826933-54287f79e1c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxob3RlbCUyMGxvYmJ5fGVufDB8fHx8MTc2NTAwMDUzNnww&ixlib=rb-4.1.0&q=80&w=1080", hint: "hotel lobby" }
+      { id: "property-3-2", url: "https://images.unsplash.com/photo-1637730826933-54287f79e1c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxob3RlbCUyMGxvYmJ5fGVufDB8fHx8MTc2NTAwMDUzNnww&ixlib-rb-4.1.0&q=80&w=1080", hint: "hotel lobby" }
     ],
     agent: {
       name: "Sharif PM - Commercial",
@@ -87,7 +87,7 @@ export const properties: Property[] = [
     description: "Spacious 4 bedroom home in a quiet part of Uttara, close to schools and parks.",
     features: ["Garden", "Garage", "Terrace"],
     images: [
-      { id: "property-4-1", url: "https://images.unsplash.com/photo-1640792834777-66cdfb41478c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYW5zaW9uJTIwZ2FyZGVufGVufDB8fHx8MTc2NTA5NTI3N3ww&ixlib=rb-4.1.0&q=80&w=1080", hint: "family home" },
+      { id: "property-4-1", url: "https://images.unsplash.com/photo-1640792834777-66cdfb41478c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYW5zaW9uJTIwZ2FyZGVufGVufDB8fHx8MTc2NTA5NTI3N3ww&ixlib-rb-4.1.0&q=80&w=1080", hint: "family home" },
       { id: "property-4-2", url: "https://images.unsplash.com/photo-1727777765350-ddf5b06c6c51?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsdXh1cnklMjBmb3llcnxlbnwwfHx8fDE3NjUwOTUyNzd8MA&ixlib-rb-4.1.0&q=80&w=1080", hint: "luxury foyer" }
     ],
     agent: {
@@ -96,7 +96,7 @@ export const properties: Property[] = [
       phone: "+8801700XXXXXX",
       email: "info@sharif.com.bd"
     },
-    featured: false
+    featured: true
   },
   {
     id: "dhanmondi-501",
@@ -157,7 +157,7 @@ export const properties: Property[] = [
     description: "A sleek and modern apartment in the gated community of Niketon, offering security and convenience.",
     features: ["Security", "GatedCommunity", "Parking"],
     images: [
-      { id: "property-7-1", url: "https://images.unsplash.com/photo-1597211833712-5e41faa202ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxiZWFjaCUyMGhvdXNlfGVufDB8fHx8MTc2NTA0NjEzNXww&ixlib=rb-4.1.0&q=80&w=1080", hint: "beach house" }
+      { id: "property-7-1", url: "https://images.unsplash.com/photo-1597211833712-5e41faa202ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxiZWFjaCUyMGhvdXNlfGVufDB8fHx8MTc2NTA0NjEzNXww&ixlib-rb-4.1.0&q=80&w=1080", hint: "beach house" }
     ],
     agent: {
         name: "Sharif Property Management",
