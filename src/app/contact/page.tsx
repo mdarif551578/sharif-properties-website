@@ -2,7 +2,7 @@
 'use client';
 
 import { ContactForm } from "@/components/contact-form";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function ContactPage() {
   return (
@@ -25,12 +25,36 @@ export default function ContactPage() {
                 <Mail className="h-6 w-6 text-accent" />
                 <a href="mailto:contact@sharifproperties.com" className="text-lg text-foreground hover:text-accent transition-colors">contact@sharifproperties.com</a>
               </div>
+               <div className="flex items-start gap-4">
+                <MapPin className="h-6 w-6 text-accent flex-shrink-0 mt-1" />
+                <p className="text-lg text-foreground">
+                  123 Luxury Lane, Beverly Hills, CA 90210
+                </p>
+              </div>
             </div>
           </div>
           <div className="rounded-lg border bg-card p-8 shadow-lg">
             <ContactForm />
           </div>
         </div>
+        
+        <div className="mt-16 sm:mt-24">
+            <h2 className="text-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-8">
+                Our Location
+            </h2>
+            <div className="overflow-hidden rounded-lg border shadow-lg">
+                 <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.9322105468946!2d90.39804287440886!3d23.785428187432476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c71d29847379%3A0x2ae4d70f63ad2cc1!2sSharif%20Properties%20Service!5e0!3m2!1sen!2sbd!4v1765111128686!5m2!1sen!2sbd" 
+                    width="100%" 
+                    height="450" 
+                    style={{border:0}} 
+                    allowFullScreen={true} 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+            </div>
+        </div>
+
       </div>
     </div>
   );
