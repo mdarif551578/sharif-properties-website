@@ -20,13 +20,13 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <meta name="keywords" content="real estate Dhaka, luxury apartments Dhaka, property in Gulshan, property in Banani, commercial space Dhaka, Sharif Properties" />
         <meta property="og:title" content="Sharif Properties - Luxury Real Estate in Dhaka" />
-        <meta property="og:description" content="Discover premium properties for sale in Dhaka with Sharif Properties. Your trusted partner for luxury real estate." />
+        <meta property="og:description" content="Discover premium properties for sale and expert real estate services in Dhaka with Sharif Properties. Your trusted partner for luxury living and commercial investments." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.sharifproperties.com" />
         <meta property="og:image" content="https://www.sharifproperties.com/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sharif Properties - Luxury Real Estate in Dhaka" />
-        <meta name="twitter:description" content="Your expert guide to buying and selling exclusive properties in Dhaka, Bangladesh." />
+        <meta name="twitter:description" content="Your expert guide to buying and selling exclusive properties in Dhaka, Bangladesh. Explore luxury apartments, homes, and commercial spaces." />
         <meta name="twitter:image" content="https://www.sharifproperties.com/twitter-image.jpg" />
       </head>
       <body className="font-body antialiased">

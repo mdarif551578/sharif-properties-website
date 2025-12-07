@@ -1,4 +1,3 @@
-
 'use client';
 
 import { properties } from "@/lib/properties";
@@ -49,31 +48,33 @@ export default function PropertyDetailPage({
 
   const propertyJsonLd = {
     "@context": "https://schema.org",
-    "@type": property.type === 'Office' ? 'OfficeBuilding' : 'ApartmentComplex',
+    "@type": property.type === 'Office' ? 'OfficeBuilding' : 'Apartment',
     "name": property.title,
     "description": property.description,
+    "image": property.images.map(img => img.url),
+    "url": `https://www.sharifproperties.com/properties/${property.id}`,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": property.address,
       "addressLocality": property.city,
+      "addressRegion": "Dhaka Division",
       "addressCountry": "BD"
     },
-    "image": property.images.map(img => img.url),
-    "photo": property.images.map(img => ({
-      "@type": "ImageObject",
-      "url": img.url,
-      "caption": img.hint
-    })),
     ...(property.type !== 'Office' && {
-      "numberOfBedrooms": property.bedrooms,
-      "numberOfBathroomsTotal": property.bathrooms,
-      "floorSize": {
-        "@type": "QuantitativeValue",
-        "value": property.area,
-        "unitCode": "SQF"
-      }
+        "numberOfBedrooms": property.bedrooms,
+        "numberOfBathroomsTotal": property.bathrooms,
+        "floorSize": {
+            "@type": "QuantitativeValue",
+            "value": property.area,
+            "unitText": "sqft"
+        }
     }),
-    "telephone": property.agent.phone,
+    "offers": {
+        "@type": "Offer",
+        "price": property.price,
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+    },
     "geo": {
       // These should be replaced with actual coordinates for each property
       "@type": "GeoCoordinates",
@@ -94,6 +95,9 @@ export default function PropertyDetailPage({
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content={new Date().toISOString()} />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${property.title} | Sharif Properties`} />
+        <meta name="twitter:description" content={`View details for ${property.title}, located in ${property.address}. A premier ${property.type.toLowerCase()} offered by Sharif Properties.`} />
+        <meta name="twitter:image" content={property.images[0].url} />
       </Head>
       <Script
         id="property-json-ld"

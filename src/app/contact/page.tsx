@@ -1,4 +1,3 @@
-
 'use client';
 
 import { ContactForm } from "@/components/contact-form";
@@ -10,7 +9,10 @@ export default function ContactPage() {
     <>
       <Head>
         <title>Contact Us - Sharif Properties</title>
-        <meta name="description" content="Get in touch with Sharif Properties for all your real estate needs in Dhaka. Contact us by phone, email, or visit our office." />
+        <meta name="description" content="Get in touch with Sharif Properties for expert advice on buying or selling luxury real estate in Dhaka. Contact us by phone, email, or visit our office." />
+        <meta property="og:title" content="Contact Us - Sharif Properties" />
+        <meta property="og:description" content="Reach out to the leading real estate experts in Dhaka. We're here to assist with all your property needs, from luxury apartments to commercial spaces." />
+        <meta property="og:url" content="https://www.sharifproperties.com/contact" />
       </Head>
       <div className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:py-24">

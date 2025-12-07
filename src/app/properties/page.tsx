@@ -1,5 +1,4 @@
-
-"use client";
+'use client';
 
 import { useState, useMemo, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
@@ -31,8 +30,17 @@ function PropertiesPageContent() {
     const propertyTypes = useMemo(() => ["any", ...Array.from(new Set(allProperties.map(p => p.type)))], []);
     const bedroomOptions = useMemo(() => ["any", "1", "2", "3", "4", "5+"], []);
 
-    // Derived state for filtered properties
-    const filteredProperties = useMemo(() => {
+    const [filteredProperties, setFilteredProperties] = useState<Property[]>(allProperties);
+
+    // Effect to sync state with URL search params on mount and when they change
+    useEffect(() => {
+        setLocation(searchParams.get('location') || "");
+        setPropertyType(searchParams.get('type') || "any");
+        setBedrooms(searchParams.get('bedrooms') || 'any');
+    }, [searchParams]);
+
+    // Effect to perform filtering when filter states change
+    useEffect(() => {
         let results = allProperties;
 
         // Location filter
@@ -61,15 +69,9 @@ function PropertiesPageContent() {
             results = results.filter(p => p.type === propertyType);
         }
 
-        return results;
+        setFilteredProperties(results);
     }, [location, priceRange, bedrooms, propertyType]);
 
-    // Effect to sync state with URL search params on mount and when they change
-    useEffect(() => {
-        setLocation(searchParams.get('location') || "");
-        setPropertyType(searchParams.get('type') || "any");
-        setBedrooms(searchParams.get('bedrooms') || 'any');
-    }, [searchParams]);
 
     const handlePriceChange = (value: number[]) => {
         setPriceRange(value as [number, number]);
@@ -90,7 +92,10 @@ function PropertiesPageContent() {
     <>
       <Head>
         <title>All Properties for Sale in Dhaka - Sharif Properties</title>
-        <meta name="description" content="Explore our exclusive collection of luxury apartments, houses, and commercial properties for sale in Dhaka, Bangladesh." />
+        <meta name="description" content="Explore our exclusive collection of luxury apartments, houses, and commercial properties for sale in Dhaka, Bangladesh. Use our filters to find your perfect property." />
+        <meta property="og:title" content="All Properties for Sale in Dhaka - Sharif Properties" />
+        <meta property="og:description" content="Browse our comprehensive listings of luxury properties in Dhaka. Find apartments, houses, and commercial spaces in Gulshan, Banani, and more." />
+        <meta property="og:url" content="https://www.sharifproperties.com/properties" />
       </Head>
       <div className="container mx-auto px-4 py-12">
         <div className="mb-12 text-center">

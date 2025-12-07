@@ -2,7 +2,7 @@
 
 import Head from 'next/head';
 import Image from 'next/image';
-import { Share2, Twitter, Facebook, Linkedin } from 'lucide-react';
+import { Twitter, Facebook, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
@@ -81,11 +81,11 @@ export default function BlogPage() {
             <Separator className="my-12" />
 
             <footer className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p className="text-sm text-muted-foreground font-medium">Published on: {new Date().toLocaleDateString()}</p>
+                <p className="text-sm text-muted-foreground font-medium">Published on: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                 <div className="flex items-center gap-2">
                     <span className="text-sm font-medium text-muted-foreground">Share this post:</span>
                     <Button variant="outline" size="icon" asChild>
-                        <a href="https://twitter.com/intent/tweet?url=https://www.sharifproperties.com/blog" target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter">
+                        <a href="https://twitter.com/intent/tweet?url=https://www.sharifproperties.com/blog&text=Dhaka%20Real%20Estate%20Market%20Trends%202026" target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter">
                             <Twitter className="h-4 w-4" />
                         </a>
                     </Button>
@@ -95,7 +95,7 @@ export default function BlogPage() {
                         </a>
                     </Button>
                      <Button variant="outline" size="icon" asChild>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.sharifproperties.com/blog" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.sharifproperties.com/blog&title=Dhaka%20Real%20Estate%20Market%20Trends%202026&summary=An%20in-depth%20analysis%20of%20the%20Dhaka%20real%20estate%20market%20for%202026." target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
                             <Linkedin className="h-4 w-4" />
                         </a>
                     </Button>
