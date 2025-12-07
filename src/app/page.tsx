@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { properties } from '@/lib/properties';
 import placeholderImages from '@/lib/placeholder-images.json';
@@ -43,12 +44,13 @@ export default function Home() {
 
   return (
     <div>
-       <section className="relative h-screen w-full flex items-center justify-center text-center">
+      <section className="relative h-screen w-full flex items-center justify-center text-center">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
             alt={heroImage.description}
             fill
+            sizes="100vw"
             className="object-cover"
             priority
             data-ai-hint={heroImage.imageHint}
