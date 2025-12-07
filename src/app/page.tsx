@@ -1,8 +1,6 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
-import ReactPlayer from 'react-player/lazy';
 import { properties } from '@/lib/properties';
 import { PropertyCard } from '@/components/property-card';
 import { SearchBar } from '@/components/search-bar';
@@ -17,6 +15,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from 'next/image';
+import placeholderData from '@/lib/placeholder-images.json';
 
 
 const testimonials = [
@@ -44,37 +43,22 @@ const testimonials = [
 export default function Home() {
   const featuredProperties = properties.filter((p) => p.featured).slice(0, 4);
   const areas = [...new Set(properties.map(p => p.city === "Dhaka" ? p.address : p.city))];
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const heroImage = placeholderData.placeholderImages.find(img => img.id === 'hero-image');
 
   return (
     <div>
       <section className="relative h-screen w-full flex items-center justify-center text-center overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full">
-          {isClient && (
-             <ReactPlayer
-                url="https://youtu.be/3H6Evu2hPpE?si=koFht5pCTrrkNKrZ"
-                playing={true}
-                loop={true}
-                muted={true}
-                controls={false}
-                width="100%"
-                height="100%"
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover"
-                config={{
-                  youtube: {
-                    playerVars: { 
-                      showinfo: 0,
-                      controls: 0,
-                      modestbranding: 1,
-                      iv_load_policy: 3
-                    }
-                  }
-                }}
-              />
+          {heroImage && (
+            <Image
+              src={heroImage.imageUrl}
+              alt={heroImage.description}
+              fill
+              className="object-cover"
+              data-ai-hint={heroImage.imageHint}
+              priority
+              sizes="100vw"
+            />
           )}
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20" />
