@@ -60,9 +60,20 @@ export default function Home() {
                 playing={true}
                 loop={true}
                 muted={true}
+                controls={false}
                 width="100%"
                 height="100%"
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover"
+                config={{
+                  youtube: {
+                    playerVars: { 
+                      showinfo: 0,
+                      controls: 0,
+                      modestbranding: 1,
+                      iv_load_policy: 3
+                    }
+                  }
+                }}
               />
           )}
         </div>
