@@ -11,43 +11,57 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { MapPin, DollarSign, Home, Search } from "lucide-react";
+import { Slider } from "@/components/ui/slider";
+import { MapPin, Home, Search, DollarSign } from "lucide-react";
 
 export function SearchBar() {
   const router = useRouter();
   const [location, setLocation] = useState("");
   const [type, setType] = useState("any");
-  const [bedrooms, setBedrooms] = useState("any");
+  const [priceRange, setPriceRange] = useState([0, 5000000]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     const params = new URLSearchParams();
     if (location) params.set("location", location);
     if (type !== "any") params.set("type", type);
-    if (bedrooms !== "any") params.set("bedrooms", bedrooms);
+    params.set("price_min", priceRange[0].toString());
+    if (priceRange[1] < 5000000) {
+      params.set("price_max", priceRange[1].toString());
+    }
 
     router.push(`/properties?${params.toString()}`);
+  };
+
+  const formatPrice = (price: number) => {
+    if (price >= 10000000) {
+      return `${(price / 10000000).toFixed(1)} Cr`;
+    }
+    if (price >= 100000) {
+      return `${(price / 100000).toFixed(1)} Lac`;
+    }
+    return price.toLocaleString();
   };
 
   return (
     <form
       onSubmit={handleSearch}
-      className="w-full max-w-4xl p-4 bg-background/90 backdrop-blur-sm rounded-lg shadow-2xl"
+      className="w-full max-w-5xl p-4 bg-background/90 backdrop-blur-sm rounded-lg shadow-2xl"
     >
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
-        <div className="relative md:col-span-2">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+        <div className="relative md:col-span-4">
           <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input
             type="text"
-            placeholder="Enter a city or address..."
-            className="w-full pl-10 text-base"
+            placeholder="Enter city or address..."
+            className="w-full pl-10 text-base h-12"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />
         </div>
         
         <Select value={type} onValueChange={setType}>
-          <SelectTrigger className="w-full text-base">
+          <SelectTrigger className="w-full text-base h-12 md:col-span-2">
             <div className="flex items-center gap-2">
               <Home className="h-5 w-5 text-muted-foreground" />
               <SelectValue placeholder="Property Type" />
@@ -55,13 +69,28 @@ export function SearchBar() {
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="any">Any Type</SelectItem>
-            <SelectItem value="House">House</SelectItem>
             <SelectItem value="Apartment">Apartment</SelectItem>
-            <SelectItem value="Condo">Condo</SelectItem>
+            <SelectItem value="House">House</SelectItem>
+            <SelectItem value="Office">Office</SelectItem>
           </SelectContent>
         </Select>
 
-        <Button type="submit" size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground text-base">
+        <div className="md:col-span-4">
+           <div className="flex items-center justify-between px-1">
+             <label className="text-sm font-medium text-muted-foreground flex items-center gap-1"><DollarSign className="h-4 w-4" /> Price</label>
+             <span className="text-sm font-semibold text-accent">{formatPrice(priceRange[0])} - {formatPrice(priceRange[1])}{priceRange[1] === 5000000 ? '+' : ''}</span>
+           </div>
+           <Slider
+              min={0}
+              max={5000000}
+              step={100000}
+              value={priceRange}
+              onValueChange={(value) => setPriceRange(value as [number, number])}
+              className="mt-2"
+           />
+        </div>
+
+        <Button type="submit" size="lg" className="w-full text-base h-12 md:col-span-2">
           <Search className="mr-2 h-5 w-5" />
           Search
         </Button>

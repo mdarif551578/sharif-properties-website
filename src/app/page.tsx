@@ -5,15 +5,45 @@ import { PropertyCard } from '@/components/property-card';
 import { SearchBar } from '@/components/search-bar';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
+const testimonials = [
+  {
+    name: "Farida Ahmed",
+    title: "New Homeowner",
+    quote: "Sharif Properties made our dream a reality. Their professionalism and deep knowledge of the Dhaka market were invaluable. We found the perfect home for our family.",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxNXx8cG9ydHJhaXQlMjB3b21hbnxlbnwwfHx8fDE3NjUwNjA4Njd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    name: "Rahim Khan",
+    title: "Commercial Client",
+    quote: "Finding the right office space was critical for our business expansion. The commercial team at Sharif Properties was exceptional, guiding us to a prime location in Bashundhara.",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwZW9wbGUlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjUxMjA2Njh8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+    {
+    name: "Selina Rahman",
+    title: "Expat Renter",
+    quote: "As an expat moving to Dhaka, the process seemed daunting. Sharif's team provided a seamless experience, finding a beautiful furnished apartment for me in Banani. Highly recommended!",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwZW9wbGUlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjUxMjA2Njh8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+];
+
 
 export default function Home() {
-  const featuredProperties = properties.filter((p) => p.featured).slice(0, 3);
+  const featuredProperties = properties.filter((p) => p.featured);
   const heroImage = placeholderImages.placeholderImages.find(img => img.id === 'hero-image');
+  const areas = [...new Set(properties.map(p => p.city === "Dhaka" ? p.address : p.city))];
 
   return (
     <div>
-      <section className="relative h-[calc(100vh-5rem)] w-full flex items-center justify-center text-center">
+      <section className="relative h-screen w-full flex items-center justify-center text-center">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
@@ -25,12 +55,12 @@ export default function Home() {
           />
         )}
         <div className="absolute inset-0 bg-primary/70" />
-        <div className="relative z-10 flex flex-col items-center gap-6 px-4">
+        <div className="relative z-10 flex flex-col items-center gap-6 px-4 animate-fade-in-up">
           <h1 className="text-4xl font-bold tracking-tight text-primary-foreground md:text-6xl lg:text-7xl">
             Find Your Dream Property
           </h1>
-          <p className="max-w-2xl text-lg text-primary-foreground/90 md:text-xl">
-            Luxury homes, exclusive estates, and unparalleled service.
+          <p className="max-w-3xl text-lg text-primary-foreground/90 md:text-xl">
+            Luxury apartments, commercial spaces, and unparalleled service in the heart of Dhaka.
           </p>
           <SearchBar />
         </div>
@@ -46,13 +76,27 @@ export default function Home() {
               A selection of our finest properties, curated for you.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {featuredProperties.map((property) => (
-              <PropertyCard key={property.id} property={property} />
-            ))}
-          </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {featuredProperties.map((property) => (
+                <CarouselItem key={property.id} className="md:basis-1/2 lg:basis-1/3">
+                   <div className="p-1">
+                    <PropertyCard property={property} />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="ml-14" />
+            <CarouselNext className="mr-14" />
+          </Carousel>
           <div className="mt-12 text-center">
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg">
               <Link href="/properties">
                 View All Properties <ArrowRight className="ml-2" />
               </Link>
@@ -60,6 +104,66 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      <section className="bg-muted py-16 sm:py-24">
+        <div className="container mx-auto px-4">
+          <h3 className="text-3xl font-bold text-center mb-12 sm:text-4xl">Areas We Serve in Dhaka</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {areas.map(area => (
+              <div key={area} className="p-6 border bg-background rounded-lg text-center font-semibold text-lg hover:shadow-lg hover:-translate-y-1 transition-transform duration-300">
+                {area}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-24 bg-background">
+        <div className="container mx-auto px-4">
+           <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              What Our Clients Say
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Discover why discerning clients choose Sharif Properties.
+            </p>
+          </div>
+           <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+                {testimonials.map((testimonial, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-4 h-full">
+                       <div className="bg-muted/50 p-8 rounded-lg flex flex-col h-full">
+                          <div className="flex items-center mb-4">
+                            <div className="flex text-accent">
+                              {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
+                            </div>
+                          </div>
+                          <p className="text-muted-foreground mb-6 flex-grow">"{testimonial.quote}"</p>
+                          <div className="flex items-center">
+                            <Image src={testimonial.avatar} alt={testimonial.name} width={48} height={48} className="rounded-full mr-4" />
+                            <div>
+                                <p className="font-semibold text-foreground">{testimonial.name}</p>
+                                <p className="text-sm text-muted-foreground">{testimonial.title}</p>
+                            </div>
+                          </div>
+                       </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+            </CarouselContent>
+            <CarouselPrevious className="ml-14" />
+            <CarouselNext className="mr-14" />
+          </Carousel>
+        </div>
+      </section>
+
     </div>
   );
 }
