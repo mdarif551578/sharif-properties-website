@@ -1,3 +1,6 @@
+
+'use client';
+
 import { ContactForm } from "@/components/contact-form";
 import { Mail, Phone } from "lucide-react";
 

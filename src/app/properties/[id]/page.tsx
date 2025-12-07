@@ -1,3 +1,6 @@
+
+'use client';
+
 import { properties } from "@/lib/properties";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -14,12 +17,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { BedDouble, Bath, Ruler, MapPin, Mail, Phone, Building2 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-
-export function generateStaticParams() {
-  return properties.map((property) => ({
-    id: property.id,
-  }));
-}
 
 export default function PropertyDetailPage({
   params,

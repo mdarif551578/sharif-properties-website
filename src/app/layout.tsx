@@ -1,13 +1,10 @@
-import type { Metadata } from 'next';
+
+'use client';
+
 import './globals.css';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
-
-export const metadata: Metadata = {
-  title: 'Sharif Properties Service',
-  description: 'Luxury properties for the discerning client.',
-};
 
 export default function RootLayout({
   children,
@@ -17,6 +14,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <title>Sharif Properties Service</title>
+        <meta name="description" content="Luxury properties for the discerning client." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
