@@ -1,3 +1,106 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-image",
+      "description": "A beautiful modern house with a pool at dusk.",
+      "imageUrl": "https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjB2aWxsYXxlbnwwfHx8fDE3NjUwMDk5NTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury villa"
+    },
+    {
+      "id": "agent-1-avatar",
+      "description": "Avatar for agent John Smith.",
+      "imageUrl": "https://images.unsplash.com/photo-1568316674077-d72ee56de61c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBtYW58ZW58MHx8fHwxNzY1MDI5NDk2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional man"
+    },
+    {
+      "id": "agent-2-avatar",
+      "description": "Avatar for agent Jane Doe.",
+      "imageUrl": "https://images.unsplash.com/photo-1573496527892-904f897eb744?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvZmVzc2lvbmFsJTIwd29tYW58ZW58MHx8fHwxNzY1MDU5MTcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional woman"
+    },
+    {
+      "id": "property-1-1",
+      "description": "Exterior of a modern suburban house.",
+      "imageUrl": "https://images.unsplash.com/photo-1628745277862-bc0b2d68c50c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtb2Rlcm4lMjBob3VzZXxlbnwwfHx8fDE3NjQ5ODMzOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern house"
+    },
+    {
+      "id": "property-1-2",
+      "description": "Living room of a modern suburban house.",
+      "imageUrl": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBsaXZpbmdyb29tfGVufDB8fHx8MTc2NTAwMDgwNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern livingroom"
+    },
+    {
+      "id": "property-1-3",
+      "description": "Kitchen of a modern suburban house.",
+      "imageUrl": "https://images.unsplash.com/photo-1639405069836-f82aa6dcb900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW9kZXJuJTIwa2l0Y2hlbnxlbnwwfHx8fDE3NjQ5OTk4MTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern kitchen"
+    },
+    {
+      "id": "property-2-1",
+      "description": "Exterior of a city apartment building.",
+      "imageUrl": "https://images.unsplash.com/photo-1595330449916-e7c3e1962bd3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhcGFydG1lbnQlMjBidWlsZGluZ3xlbnwwfHx8fDE3NjUwOTUyNzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "apartment building"
+    },
+    {
+      "id": "property-2-2",
+      "description": "Interior of a modern city apartment.",
+      "imageUrl": "https://images.unsplash.com/photo-1560440021-33f9b867899d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsb2Z0JTIwYXBhcnRtZW50fGVufDB8fHx8MTc2NTA5NTI3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "loft apartment"
+    },
+    {
+      "id": "property-2-3",
+      "description": "View from a city apartment balcony.",
+      "imageUrl": "https://images.unsplash.com/photo-1535498730771-e735b998cd64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaXR5JTIwc2t5bGluZXxlbnwwfHx8fDE3NjUwMjQwNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "city skyline"
+    },
+    {
+      "id": "property-3-1",
+      "description": "Exterior of a luxury condo building.",
+      "imageUrl": "https://images.unsplash.com/photo-1632743441209-8a09b8a37e25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBjb25kb21pbml1bXxlbnwwfHx8fDE3NjUwOTUyNzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury condominium"
+    },
+    {
+      "id": "property-3-2",
+      "description": "Lobby of a luxury condo building.",
+      "imageUrl": "https://images.unsplash.com/photo-1637730826933-54287f79e1c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxob3RlbCUyMGxvYmJ5fGVufDB8fHx8MTc2NTAwMDUzNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hotel lobby"
+    },
+    {
+      "id": "property-4-1",
+      "description": "Sprawling estate with a large garden.",
+      "imageUrl": "https://images.unsplash.com/photo-1640792834777-66cdfb41478c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYW5zaW9uJTIwZ2FyZGVufGVufDB8fHx8MTc2NTA5NTI3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mansion garden"
+    },
+    {
+      "id": "property-4-2",
+      "description": "Grand foyer of a sprawling estate.",
+      "imageUrl": "https://images.unsplash.com/photo-1727777765350-ddf5b06c6c51?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsdXh1cnklMjBmb3llcnxlbnwwfHx8fDE3NjUwOTUyNzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury foyer"
+    },
+    {
+      "id": "property-5-1",
+      "description": "A charming suburban home with a front porch.",
+      "imageUrl": "https://images.unsplash.com/photo-1623715056534-f8052f1dfd86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdWJ1cmJhbiUyMGhvbWV8ZW58MHx8fHwxNzY0OTk4MDc1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "suburban home"
+    },
+    {
+      "id": "property-6-1",
+      "description": "A downtown penthouse apartment with floor-to-ceiling windows.",
+      "imageUrl": "https://images.unsplash.com/photo-1707484687082-9493754d389f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZW50aG91c2UlMjBhcGFydG1lbnR8ZW58MHx8fHwxNzY1MDIyMzYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "penthouse apartment"
+    },
+    {
+      "id": "property-7-1",
+      "description": "A beachfront house with ocean views.",
+      "imageUrl": "https://images.unsplash.com/photo-1597211833712-5e41faa202ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxiZWFjaCUyMGhvdXNlfGVufDB8fHx8MTc2NTA0NjEzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "beach house"
+    },
+    {
+      "id": "property-8-1",
+      "description": "A modern townhouse in a city.",
+      "imageUrl": "https://images.unsplash.com/photo-1624343385944-b99336163b50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB0b3duaG91c2V8ZW58MHx8fHwxNzY0OTk4MDc1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern townhouse"
+    }
+  ]
 }
