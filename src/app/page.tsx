@@ -56,7 +56,7 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-full h-full">
           {isClient && (
              <ReactPlayer
-                url="https://www.youtube.com/watch?v=x5Ja4hi3dTw"
+                url="https://youtu.be/3H6Evu2hPpE?si=koFht5pCTrrkNKrZ"
                 playing={true}
                 loop={true}
                 muted={true}
