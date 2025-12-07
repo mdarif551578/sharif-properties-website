@@ -52,7 +52,7 @@ export default function Home() {
           {heroImage && (
             <Image
               src={heroImage.imageUrl}
-              alt={heroImage.description}
+              alt="Luxury modern house in Dhaka with a pool at dusk, representing premium properties available at Sharif Properties."
               fill
               className="object-cover"
               data-ai-hint={heroImage.imageHint}
@@ -144,7 +144,7 @@ export default function Home() {
                           </div>
                           <p className="text-muted-foreground mb-6 flex-grow">"{testimonial.quote}"</p>
                           <div className="flex items-center">
-                            <Image src={testimonial.avatar} alt={testimonial.name} width={48} height={48} className="rounded-full mr-4" />
+                            <Image src={testimonial.avatar} alt={`Portrait of ${testimonial.name}, a satisfied client of Sharif Properties`} width={48} height={48} className="rounded-full mr-4" />
                             <div>
                                 <p className="font-semibold text-foreground">{testimonial.name}</p>
                                 <p className="text-sm text-muted-foreground">{testimonial.title}</p>

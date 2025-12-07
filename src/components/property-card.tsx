@@ -26,7 +26,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
           <div className="relative aspect-video w-full">
             <Image
               src={property.images[0].url}
-              alt={property.title}
+              alt={`Exterior view of ${property.title}, a ${property.type.toLowerCase()} in ${property.address}`}
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
